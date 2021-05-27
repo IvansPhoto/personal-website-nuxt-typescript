@@ -41,8 +41,27 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/content
-    '@nuxt/content'
+    '@nuxt/content',
+    'nuxt-i18n'
   ],
+
+  i18n: {
+    baseUrl: 'https://www.website.dev',
+    strategy: 'prefix_and_default',
+    seo: true,
+    lazy: true,
+    defaultLocale: 'en',
+    langDir: 'locales/',
+    locales: [
+      { code: 'en', iso: 'en', file: 'en.js' },
+      { code: 'ru', iso: 'ru', file: 'ru.js' }
+    ],
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      onlyOnRoot: false
+    }
+  },
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {},
