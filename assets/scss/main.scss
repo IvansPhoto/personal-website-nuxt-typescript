@@ -19,7 +19,7 @@ body {
 }
 
 main {
-	min-height: calc(100vh - #{$footer-min-height * 2});
+	min-height: calc(100vh - #{$nav-footer-min-height * 2});
 }
 
 @media (max-width: #{$media-screen-mobile}) {

@@ -6,10 +6,6 @@
       <p>{{ $t('Address2') }}</p>
     </div>
 
-    <div class="phones">
-      <p>+7 * ** ** ** ** </p>
-    </div>
-
     <!--    <div class="terms">-->
     <!--      <nuxt-link :to="localePath('/terms-of-use')" no-prefetch>-->
     <!--        {{ $t('TermsOfUse') }}-->
@@ -35,9 +31,11 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./assets/scss/scss-variables";
+
 footer {
   width: 100%;
-  min-height: 5rem;
+  min-height: $nav-footer-min-height;
   display: flex;
   align-items: center;
   justify-content: space-around;

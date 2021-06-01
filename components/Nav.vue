@@ -33,6 +33,8 @@
 
 </script>
 <style lang="scss">
+@import "./assets/scss/scss-variables";
+
 .showingMenu-enter-active,
 .showingMenu-leave-active {
   transition: opacity 1.5s;
@@ -65,39 +67,16 @@ nav {
 }
 
 #NavDesktop {
-  //height: 5rem;
+  min-height: $nav-footer-min-height;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-end;
-  padding: 0.75rem 10vw;
-  font-size: 1.25rem;
+  align-content: center;
+  justify-content: space-evenly;
   border-bottom: 0.1rem solid var(--colorFont);
   z-index: 10;
   color: var(--colorFont);
   background-color: var(--colorBackground);
-
-  //Gradient to hide the Inmed logo.
-  //&:after {
-  //	content: ' ';
-  //	position: absolute;
-  //	top: 5rem;
-  //	left: 0;
-  //	background: var(--navGradient);
-  //	height: 5rem;
-  //	width: 100%;
-  //	z-index: 1;
-  //}
-
-  :first-child {
-    margin-right: auto;
-    padding: 0;
-  }
-
-  > * {
-    padding: 0 1em;
-    cursor: pointer;
-  }
 }
 
 .activeLink {
