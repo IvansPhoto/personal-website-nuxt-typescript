@@ -1,21 +1,10 @@
 <template>
   <footer>
-    <div class="address">
-      <p>{{ $t('RightsReserved') }} {{ new Date().getFullYear() }}<span>©</span></p>
-      <p>{{ $t('Address1') }}</p>
-      <p>{{ $t('Address2') }}</p>
-    </div>
-
-    <!--    <div class="terms">-->
-    <!--      <nuxt-link :to="localePath('/terms-of-use')" no-prefetch>-->
-    <!--        {{ $t('TermsOfUse') }}-->
-    <!--      </nuxt-link>-->
-    <!--      <nuxt-link :to="localePath('/privacy-policy')" no-prefetch>-->
-    <!--        {{ $t('PrivacyPolicy') }}-->
-    <!--      </nuxt-link>-->
-    <!--    </div>-->
-
-    <LangSwitcher />
+    <p>{{ $t('Footer.RightsReserved') }} {{ new Date().getFullYear() }}.</p>
+    <p>This website is built on Angular.</p>
+    <p>The source code can be found on <a href="https://gitlab.com/gutehaltung/">GitLab</a>.
+    </p>
+    <LangSwitcher/>
   </footer>
 </template>
 
@@ -37,7 +26,9 @@ footer {
   width: 100%;
   min-height: $nav-footer-min-height;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  align-content: center;
   justify-content: space-around;
   padding: 0 1rem;
   border-top: 0.1rem solid var(--colorFont);
@@ -70,14 +61,10 @@ footer {
     align-items: center;
     padding: 1rem;
 
-    .address,
-    .phones,
-    .terms {
-      p,
-      a {
-        padding: 0.5em;
-        font-size: 1rem;
-      }
+    p,
+    a {
+      text-align: center;
+      font-size: 1rem;
     }
   }
 }

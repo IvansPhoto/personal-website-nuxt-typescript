@@ -1,9 +1,35 @@
 <template>
   <main id="Main">
-    <h1>Header</h1>
-    <nuxt-link to="/page">
-      Page
-    </nuxt-link>
+    <section class="section-images">
+      <img
+        srcset="/images/DSC06506_2000.webp 2000w,
+                    /images/DSC06506_1500.webp 1500w,
+                    /images/DSC06506_1000.webp 1000w,
+                    /images/DSC06506_750.webp 750w,
+                    /images/DSC06506_500.webp 500w,
+                    /images/DSC06506_250.webp 250w"
+        src="/images/DSC06506_2000.webp"
+        sizes="(max-width: 1000px) 90vw, 40vw"
+        alt="Photo" loading="lazy"
+      >
+    </section>
+    <article class="article-text">
+      <h1>About me</h1>
+      <p>
+        My name is Ivan Pavlov. I live in Russia Saint-Petersburg but originally I am from Vologda which is a town in North-West Russia. <br>
+        I am ready to relocate to Central Europe and Canada.
+      </p>
+      <p>I had graduated Vologda State Dairy Farming Academy named after N.V. Vereshchagin as Quality manager in food industry.</p>
+      <p>
+        My job career began as a quality manager in a bearing factory.
+        After several months of work, I understood that these responsibilities and salaries are not what I want to have in my profession.
+      </p>
+      <p>
+        During service in Russian Army, I was thinking about my skills, possible profession and decided to become a Sales Manager of industrial equipment and strive to be a marketing manager.
+        <br>Since 2012, I have been working as Marketing and Sales Manager of industrial equipment and raw materials.
+      </p>
+      <p>My hobbies are riding bicycle and photography. I prefer an active rest.</p>
+    </article>
   </main>
 </template>
 

@@ -2,19 +2,15 @@ export default {
   Contacts: {
     Title: 'Contacts',
     Description: 'Contacts',
-    ContactsH1: 'Contacts',
-    OurAddress: 'Our address:',
-    Address1: 'Inmed LLC, 34 Svyazi St., Letter A,',
-    Address2: 'Strelna, St. Petersburg, Russia, 198515',
+    H1: 'Contacts',
+    SM: 'You can reach me on social media:',
     Name: 'Name',
-    NameText: 'Your Name',
-    EmailText: 'Your email',
+    NameText: 'Name / Surname / Full name',
+    EmailText: 'adress@domain.com',
     Phone: 'Phone',
-    PhoneText: 'Your phone',
     Role: 'Role',
-    RoleText: 'Your role',
     Message: 'Message',
-    MessageText: 'Your message',
+    MessageText: 'Input your message',
     Send: 'Send the message'
   }
 }

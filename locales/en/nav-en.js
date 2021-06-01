@@ -1,6 +1,8 @@
 export default {
   Nav: {
-    About: 'About Us',
+    About: 'About Me',
+    Biography: 'Biography',
+    DevSkills: 'Developer Skills',
     Contacts: 'Contacts'
   }
 }

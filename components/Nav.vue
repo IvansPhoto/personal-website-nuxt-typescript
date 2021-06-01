@@ -4,6 +4,12 @@
       <nuxt-link exact-active-class="activeLink" :to="localePath('/')">
         {{ $t('Nav.About') }}
       </nuxt-link>
+      <nuxt-link exact-active-class="activeLink" :to="localePath('/biography')">
+        {{ $t('Nav.Biography') }}
+      </nuxt-link>
+      <nuxt-link exact-active-class="activeLink" :to="localePath('/dev-skills')">
+        {{ $t('Nav.DevSkills') }}
+      </nuxt-link>
       <nuxt-link exact-active-class="activeLink" :to="localePath('/contacts/')">
         {{ $t('Nav.Contacts') }}
       </nuxt-link>
@@ -11,10 +17,16 @@
     </div>
 
     <transition name="showingMenu">
-      <div v-if="showNavMobile" id="NavMobile">
-        <div class="showingMenuItems" @click="showNavMobile = !showNavMobile">
+      <div v-if="!isShown" id="NavMobile">
+        <div class="showingMenuItems" @click="NavToggler">
           <nuxt-link exact-active-class="activeLink" :to="localePath('/')">
             {{ $t('Nav.About') }}
+          </nuxt-link>
+          <nuxt-link exact-active-class="activeLink" :to="localePath('/biography')">
+            {{ $t('Nav.Biography') }}
+          </nuxt-link>
+          <nuxt-link exact-active-class="activeLink" :to="localePath('/dev-skills')">
+            {{ $t('Nav.DevSkills') }}
           </nuxt-link>
           <nuxt-link exact-active-class="activeLink" :to="localePath('/contacts/')">
             {{ $t('Nav.Contacts') }}
@@ -23,14 +35,23 @@
         </div>
       </div>
     </transition>
-    <button :class="{ changeState: showNavMobile }" class="button" aria-label="Menu button" @click="showNavMobile = !showNavMobile">
-      Show
+    <button :class="{ changeState: !isShown }" class="button" aria-label="Menu button" @click="NavToggler">
+      <!--      {{ isShown ? '|':'X' }}-->
     </button>
   </nav>
 </template>
 
 <script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
 
+@Component
+export default class Nav extends Vue {
+  isShown: boolean = false;
+
+  NavToggler ():void {
+    this.isShown = !this.isShown
+  }
+}
 </script>
 <style lang="scss">
 @import "./assets/scss/scss-variables";
@@ -80,42 +101,48 @@ nav {
 }
 
 .activeLink {
-  color: var(--colorCyanC);
+  color: var(--colorRed);
 }
 
 #NavMobile {
   position: fixed;
   top: 0;
   right: 0;
+  padding: 2rem 0 0 1rem;
+  display: none;
+  flex-direction: column;
+  width: 19rem;
   height: 100vh;
-  max-width: 35vw;
-  min-width: 20rem;
-  display: flex;
-  font-size: 1.5rem;
-  padding-top: 3em;
-  padding-left: 3em;
-  color: var(--colorFont);
+  border-left: 0.1rem solid var(--colorRed);
   background-color: var(--colorBackground);
-  border-left: var(--colorFont) solid 0.1rem;
-  transition: opacity 0.3s;
   z-index: 10;
-
-  .showingMenuItems {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-
-    > * {
-      margin: 1rem 0;
-    }
-  }
+  gap: 1rem;
 }
+
+.nav-hide{
+  display: flex !important;
+}
+
+//.nav-toggler {
+//  position: fixed;
+//  top: 0.75rem;
+//  right: 1rem;
+//  z-index: 10;
+//  border: none;
+//  border-radius: 0.5rem;
+//  text-transform: uppercase;
+//  margin: 0;
+//  padding: 0.5em;
+//  color: var(--colorBackground);
+//  background-color: transparent;
+//  box-shadow: none;
+//}
 
 .button {
   all: unset;
-  border: 0.25rem solid var(--colorCyanC);
+  border: 0.15rem solid var(--colorRed);
   border-radius: 50%;
-  background-color: var(--colorFont);
+  background-color: transparent;
   cursor: pointer;
   position: fixed;
   top: 1.25rem;
@@ -127,10 +154,9 @@ nav {
 }
 
 .changeState {
-  transform: rotate(45deg);
-  border: 0.25rem solid var(--colorFont);
-  background-color: var(--colorCyanC);
-  border-radius: 50% 0;
+  border: 0.15rem solid var(--colorFont);
+  background-color: transparent;
+  border-radius: 10%;
 }
 
 .changeColor {
@@ -150,11 +176,11 @@ nav {
   z-index: 100;
 }
 
-@media (min-width: 1001px) and (max-width: 1440px) {
-  #NavDesktop {
-    padding: 0.75rem 5vw;
-  }
-}
+//@media (min-width: 1001px) and (max-width: 1440px) {
+//  #NavDesktop {
+//    padding: 0.75rem 5vw;
+//  }
+//}
 
 @media (max-width: 1000px) {
   #NavDesktop {

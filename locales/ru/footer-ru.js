@@ -1,6 +1,6 @@
 export default {
   Footer: {
-    RightsReserved: 'Мы, все права защищены.',
+    RightsReserved: 'Иван Павлов, все права защищены.',
     TermsOfUse: 'Условия использования',
     PrivacyPolicy: 'Политика конфиденциальности'
   }
