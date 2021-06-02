@@ -396,22 +396,47 @@
       </svg>
     </section>
     <article class="article-text">
-      <h1>Biography</h1>
-      <p>My career as Sales and Marketing manager:</p>
-      <div v-for="Job of Jobs">
+      <h1>{{ $t('Biography.H1') }}</h1>
+      <p>{{ $t('Biography.MyCareer') }}</p>
+      <div v-for="Job in jobs" :key="Job.Id">
         <h2>{{ Job.Company }}</h2>
-        <p>{{ Job.Start }} - {{ Job.End }}</p>
-        <p><strong>Location:</strong> {{ Job.Location }}</p>
-        <p><strong>Position:</strong> {{ Job.ShortDescription }}</p>
+        <p>{{ getDate(Job.Start) }} - {{ getDate(Job.End) }}</p>
+        <p><strong>{{ $t('Biography.Location') }}</strong> {{ Job.Location }}</p>
+        <p><strong>{{ $t('Biography.Position') }}</strong> {{ Job.Position }}</p>
+        <p><strong>{{ $t('Biography.ShortDescription') }}</strong> {{ Job.ShortDescription }}</p>
         <!--        <app-responsibilities [responsibilities]="Job.Responsibilities"></app-responsibilities>-->
       </div>
     </article>
   </main>
 </template>
 
-<script>
-export default {
-  name: 'Biography'
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
+import { Context } from '@nuxt/types'
+import IJob from '../Models/IJob'
+
+@Component
+export default class Biography extends Vue {
+  async asyncData (ctx: Context): Promise<Object> {
+    const { $content } = ctx
+    const data: any = await $content('works').fetch()
+    const jobs: IJob[] = data
+    return { jobs }
+  }
+
+  jobs: IJob[]
+
+  getDate (str: string): string {
+    const date = new Date(str)
+    return `${date.getFullYear()}-${date.getMonth()}`
+  }
+
+  head () {
+    return {
+      title: this.$t('Biography.Title'),
+      meta: [{ hid: 'description', name: 'description', content: this.$t('Biography.Description') }]
+    }
+  }
 }
 </script>
 
