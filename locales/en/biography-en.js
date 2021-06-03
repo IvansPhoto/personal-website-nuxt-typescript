@@ -6,7 +6,7 @@ export default {
     MyCareer: 'My career as Sales and Marketing manager:',
     Location: 'Location',
     Position: 'Position',
-    ShortDescription: 'ShortDescription',
+    ShortDescription: 'Description',
     Responsibilities: 'Responsibilities'
   }
 }

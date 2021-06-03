@@ -13,19 +13,19 @@
     <form v-if="!submitted" netlify name="contact" netlify-honeypot="bot-field" @submit.prevent="handleSubmit">
       <label style="display: none">Don’t fill this out if you're human: <input name="bot-field" type="text"></label>
       <label for="Name">{{ $t('Contacts.Name') }}</label>
-      <input id="Name" type="text" name="name" :placeholder="[[$t('Contacts.NameText')]]" maxlength="100" required>
+      <input id="Name" :key="userName" v-model="userName" type="text" name="name" :placeholder="[[$t('Contacts.NameText')]]" maxlength="100" required>
 
       <label for="Email">Email</label>
-      <input id="Email" type="email" name="email" :placeholder="[[$t('Contacts.EmailText')]]" maxlength="100" required>
+      <input id="Email" :key="userEmail" v-model="userEmail" type="email" name="email" :placeholder="[[$t('Contacts.EmailText')]]" maxlength="100" required>
 
       <label for="Telephone">{{ $t('Contacts.Phone') }}</label>
-      <input id="Telephone" type="tel" name="telephone" placeholder="+** **** *******">
+      <input id="Telephone" :key="userTelephone" v-model="userTelephone" type="tel" name="telephone" placeholder="+** **** *******">
 
       <label for="Role">{{ $t('Contacts.Role') }}</label>
-      <input id="Role" type="text" name="role" placeholder="HR / Manager / Developer" maxlength="100">
+      <input id="Role" :key="userRole" v-model="userRole" type="text" name="role" placeholder="HR / Manager / Developer" maxlength="100">
 
       <label for="Message">{{ $t('Contacts.Message') }}</label>
-      <textarea id="Message" name="message" :placeholder="[[$t('Contacts.MessageText')]]" autocomplete="off" rows="4" cols="50" maxlength="1000" required />
+      <textarea id="Message" :key="userMessage" v-model="userMessage" name="message" :placeholder="[[$t('Contacts.MessageText')]]" autocomplete="off" rows="4" cols="50" maxlength="1000" required />
 
       <div data-netlify-recaptcha="true" />
 
@@ -69,16 +69,6 @@ export default class Contacts extends Vue {
   userTelephone: string | null = null
   userRole: string | null = null
   userMessage: string | null = null
-
-  data () {
-    return {
-      userName: '',
-      userEmail: '',
-      userTelephone: '',
-      userRole: '',
-      userMessage: ''
-    }
-  }
 
   createFormDataObj (data: any): any {
     const formData = new FormData()

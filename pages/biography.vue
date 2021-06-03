@@ -404,7 +404,7 @@
         <p><strong>{{ $t('Biography.Location') }}</strong> {{ Job.Location }}</p>
         <p><strong>{{ $t('Biography.Position') }}</strong> {{ Job.Position }}</p>
         <p><strong>{{ $t('Biography.ShortDescription') }}</strong> {{ Job.ShortDescription }}</p>
-        <!--        <app-responsibilities [responsibilities]="Job.Responsibilities"></app-responsibilities>-->
+        <Responsibilities :resp="Job.Responsibilities" />
       </div>
     </article>
   </main>
@@ -414,8 +414,11 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { Context } from '@nuxt/types'
 import IJob from '../Models/IJob'
+import Responsibilities from '~/components/Responsibilities.vue'
 
-@Component
+@Component({
+  components: { Responsibilities }
+})
 export default class Biography extends Vue {
   async asyncData (ctx: Context): Promise<Object> {
     const { $content } = ctx
@@ -424,7 +427,7 @@ export default class Biography extends Vue {
     return { jobs }
   }
 
-  jobs: IJob[]
+  jobs: IJob[] = []
 
   getDate (str: string): string {
     const date = new Date(str)
