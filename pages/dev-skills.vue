@@ -63,7 +63,8 @@
       </svg>
     </section>
     <article class="article-text">
-      <h1>My developer skills</h1>
+      <h1>{{ $t('DevSkills.H1') }}</h1>
+      <!--TODO: Localize-->
       <p>My programming journey started in Spring 2019 from learning JavaScript to add some interaction to my photography website and immerse in </p>
       <p>But the first step in the web world I made in 2012 - I created a simple website for a company where I was working as a Sales Manager, based on technology - "I know Googling".</p>
       <p>In 2013 I tried to learn C#, but at that time it seemed boring for me.</p>
@@ -80,12 +81,17 @@
       <p>My programming experience includes self-education based on official documentation, YouTube tutorials, Udemy courses and a 4 months Internship in an international outsourcing company.</p>
     </article>
   </main>
-
 </template>
 
 <script>
 export default {
-  name: 'DevSkills'
+  name: 'DevSkills',
+  head () {
+    return {
+      title: this.$t('DevSkills.Title'),
+      meta: [{ hid: 'description', name: 'description', content: this.$t('DevSkills.Description') }]
+    }
+  }
 }
 </script>
 
