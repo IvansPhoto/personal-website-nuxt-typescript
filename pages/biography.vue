@@ -401,9 +401,9 @@
       <div v-for="Job in jobs" :key="Job.Id">
         <h2>{{ Job.Company }}</h2>
         <p>{{ getDate(Job.Start) }} - {{ getDate(Job.End) }}</p>
-        <p><strong>{{ $t('Biography.Location') }}</strong> {{ Job.Location }}</p>
-        <p><strong>{{ $t('Biography.Position') }}</strong> {{ Job.Position }}</p>
-        <p><strong>{{ $t('Biography.ShortDescription') }}</strong> {{ Job.ShortDescription }}</p>
+        <p><strong>{{ $t('Biography.Location') }}:</strong> {{ Job.Location }}</p>
+        <p><strong>{{ $t('Biography.Position') }}:</strong> {{ Job.Position }}</p>
+        <p><strong>{{ $t('Biography.ShortDescription') }}:</strong> {{ Job.ShortDescription }}</p>
         <Responsibilities :resp="Job.Responsibilities" />
       </div>
     </article>
@@ -421,8 +421,8 @@ import Responsibilities from '~/components/Responsibilities.vue'
 })
 export default class Biography extends Vue {
   async asyncData (ctx: Context): Promise<Object> {
-    const { $content } = ctx
-    const data: any = await $content('works').fetch()
+    const { $content, app } = ctx
+    const data: any = await $content(`works/${app.i18n.locale}`).fetch()
     const jobs: IJob[] = data
     return { jobs }
   }

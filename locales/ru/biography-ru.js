@@ -7,6 +7,8 @@ export default {
     Location: 'Город',
     Position: 'Должность',
     ShortDescription: 'Описание',
-    Responsibilities: 'Обязанности'
+    Responsibilities: 'Обязанности',
+    Show: 'Показать',
+    Hide: 'Скрыть'
   }
 }

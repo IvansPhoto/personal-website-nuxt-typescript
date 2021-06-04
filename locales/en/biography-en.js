@@ -7,6 +7,8 @@ export default {
     Location: 'Location',
     Position: 'Position',
     ShortDescription: 'Description',
-    Responsibilities: 'Responsibilities'
+    Responsibilities: 'Responsibilities',
+    Show: 'Show',
+    Hide: 'Hide'
   }
 }
