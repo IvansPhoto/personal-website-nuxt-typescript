@@ -1,10 +1,15 @@
 <template>
   <footer>
-    <p>{{ $t('Footer.RightsReserved') }} {{ new Date().getFullYear() }}.</p>
-    <p>This website is built on Nuxt.JS.</p>
-    <p>The source code can be found on <a href="https://gitlab.com/gutehaltung/">GitLab</a>.
+    <p>
+      {{ $t('Footer.RightsReserved') }} {{ new Date().getFullYear() }}.
     </p>
-    <LangSwitcher/>
+    <p>
+      {{ $t('Footer.BuildOn') }} <a href="https://nuxtjs.org/">NuxtJS</a>.
+    </p>
+    <p>
+      {{ $t('Footer.SourceCode') }} <a href="https://github.com/">Github</a>.
+    </p>
+    <LangSwitcher />
   </footer>
 </template>
 
