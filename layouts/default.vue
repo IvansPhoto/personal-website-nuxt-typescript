@@ -43,6 +43,12 @@
   .section-images {
     position: relative;
     top: unset;
+    img, svg {
+      margin-top: 3rem;
+      width: 90vw;
+      align-self: center;
+      justify-self: center;
+    }
   }
 }
 

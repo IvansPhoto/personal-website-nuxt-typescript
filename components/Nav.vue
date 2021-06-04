@@ -17,8 +17,8 @@
     </div>
 
     <transition name="showingMenu">
-      <div v-if="!isShown" id="NavMobile">
-        <div class="showingMenuItems" @click="NavToggler">
+      <div v-if="isShown">
+        <div id="NavMobile" class="showingMenuItems" @click="NavToggler">
           <nuxt-link exact-active-class="activeLink" :to="localePath('/')">
             {{ $t('Nav.About') }}
           </nuxt-link>
@@ -58,7 +58,7 @@ export default class Nav extends Vue {
 
 .showingMenu-enter-active,
 .showingMenu-leave-active {
-  transition: opacity 1.5s;
+  transition: opacity 0.125s;
 }
 
 .showingMenu-enter,
@@ -78,13 +78,6 @@ nav {
     text-transform: uppercase;
     font-weight: 500;
   }
-}
-
-.company-logo {
-  height: 3rem;
-  width: 10rem;
-  margin-top: 0.5rem;
-  text-transform: none;
 }
 
 #NavDesktop {
@@ -109,7 +102,7 @@ nav {
   top: 0;
   right: 0;
   padding: 2rem 0 0 1rem;
-  display: none;
+  display: flex;
   flex-direction: column;
   width: 19rem;
   height: 100vh;
@@ -117,10 +110,6 @@ nav {
   background-color: var(--colorBackground);
   z-index: 10;
   gap: 1rem;
-}
-
-.nav-hide{
-  display: flex !important;
 }
 
 //.nav-toggler {
@@ -142,7 +131,7 @@ nav {
   all: unset;
   border: 0.15rem solid var(--colorRed);
   border-radius: 50%;
-  background-color: transparent;
+  background-color: var(--colorBackground);
   cursor: pointer;
   position: fixed;
   top: 1.25rem;
@@ -155,7 +144,6 @@ nav {
 
 .changeState {
   border: 0.15rem solid var(--colorFont);
-  background-color: transparent;
   border-radius: 10%;
 }
 

@@ -1,7 +1,7 @@
 <template>
   <footer>
     <p>{{ $t('Footer.RightsReserved') }} {{ new Date().getFullYear() }}.</p>
-    <p>This website is built on Angular.</p>
+    <p>This website is built on Nuxt.JS.</p>
     <p>The source code can be found on <a href="https://gitlab.com/gutehaltung/">GitLab</a>.
     </p>
     <LangSwitcher/>

@@ -1,7 +1,7 @@
 <template>
   <div class="langSwitcher">
     <nuxt-link v-for="locale in availableLocales" :key="locale.code" :to="switchLocalePath(locale.code)" class="lLink">
-      <!--      <img src="~assets/img/icons/web-icon.svg" alt="Lang" class="langSwitcherImg" sizes="2rem"/>-->
+      <img src="/images/icons/web-icon.svg" alt="Lang" class="langSwitcherImg" sizes="2rem">
       {{ locale.code }}
     </nuxt-link>
   </div>
