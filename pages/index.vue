@@ -2,13 +2,13 @@
   <main id="Main">
     <section class="section-images">
       <img
-        srcset="/images/DSC06506_2000.webp 2000w,
-                    /images/DSC06506_1500.webp 1500w,
-                    /images/DSC06506_1000.webp 1000w,
-                    /images/DSC06506_750.webp 750w,
-                    /images/DSC06506_500.webp 500w,
-                    /images/DSC06506_250.webp 250w"
-        src="/images/DSC06506_2000.webp"
+        srcset="~assets/images/DSC06506_2000.webp 2000w,
+                    ~assets/images/DSC06506_1500.webp 1500w,
+                    ~assets/images/DSC06506_1000.webp 1000w,
+                    ~assets/images/DSC06506_750.webp 750w,
+                    ~assets/images/DSC06506_500.webp 500w,
+                    ~assets/images/DSC06506_250.webp 250w"
+        src="~assets/images/DSC06506_2000.webp"
         sizes="(max-width: 1000px) 90vw, 40vw"
         alt="Photo" loading="lazy"
       >
