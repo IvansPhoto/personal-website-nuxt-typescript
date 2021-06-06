@@ -128,7 +128,6 @@ nav {
 //}
 
 .button {
-  all: unset;
   border: 0.15rem solid var(--colorRed);
   border-radius: 50%;
   background-color: var(--colorBackground);
