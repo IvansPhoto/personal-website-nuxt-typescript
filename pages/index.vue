@@ -34,9 +34,17 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { Component, Vue } from 'nuxt-property-decorator'
 
-export default Vue.extend({})
+@Component
+export default class Contacts extends Vue {
+  head () {
+    return {
+      title: this.$t('About.Title'),
+      meta: [{ hid: 'description', name: 'description', content: this.$t('About.Description') }]
+    }
+  }
+}
 </script>
 
 <style>
